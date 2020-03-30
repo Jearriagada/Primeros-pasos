@@ -1,0 +1,23 @@
+#su importe piols
+
+import pandas_datareader as pdr
+import matplotlib.pyplot as plt
+import datetime
+ 
+#fecha
+
+start = datetime.datetime(2020,3,25).isoformat()
+end = datetime.datetime(2020,3,30).isoformat()
+print(start,end)
+
+#busqueda del indice 
+index = 'clp=x' 
+print(index)
+stock = pdr.get_data_yahoo(index, start=start, end=end)
+close = stock['Close']
+print(stock)
+
+#grafiquencio
+
+plt.plot(close, color='b')
+plt.show()
